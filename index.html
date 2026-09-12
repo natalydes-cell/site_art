@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumino's Artefact — галерея картин</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="wordmark" href="index.html">Lumino's <span>Artefact</span></a>
+    <nav class="cats" id="cats">
+      <button class="cat-btn on" data-cat="all">Все работы</button>
+      <button class="cat-btn" data-cat="acrylic">Акрил</button>
+      <button class="cat-btn" data-cat="graphic">Графика</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="gallery" id="gallery"></section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Заказ и вопросы:
+      <a href="https://wa.me/00000000000" target="_blank" rel="noopener">WhatsApp</a> ·
+      <a href="https://t.me/your_telegram" target="_blank" rel="noopener">Telegram</a> ·
+      <a href="mailto:youremail@example.com">Email</a>
+    </p>
+    <p class="copyright">&copy; 2026 Lumino's Artefact</p>
+  </footer>
+
+  <!-- Быстрый просмотр -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-panel">
+      <button class="modal-close" id="modalClose" aria-label="Закрыть">&times;</button>
+      <div class="modal-media">
+        <img id="modalImg" src="" alt="">
+        <button class="carousel-arrow left" id="modalPrev" aria-label="Предыдущее фото">&#8249;</button>
+        <button class="carousel-arrow right" id="modalNext" aria-label="Следующее фото">&#8250;</button>
+        <div class="dots" id="modalDots"></div>
+      </div>
+      <div class="modal-info">
+        <p class="modal-cat" id="modalCat"></p>
+        <h2 id="modalTitle"></h2>
+        <p class="modal-meta" id="modalMeta"></p>
+        <p class="modal-price" id="modalPrice"></p>
+        <p class="modal-desc" id="modalDesc"></p>
+        <a class="modal-link" id="modalLink" href="#">Смотреть страницу картины →</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="paintings.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
