@@ -579,13 +579,13 @@ a { color: inherit; }
 
 .modal-panel {
   background: var(--bg);
-  max-width: 960px;
+  max-width: 1080px;
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
   border-radius: 6px;
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1fr 1.2fr;
   position: relative;
 }
 
