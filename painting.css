@@ -103,6 +103,23 @@
   max-width: 52ch;
 }
 
+.painting-info .description h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1.1rem;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.painting-info .description p {
+  margin: 0 0 14px;
+}
+
+.painting-info .description p:last-child {
+  margin-bottom: 0;
+}
+
 .painting-info .order-links {
   display: flex;
   flex-wrap: wrap;

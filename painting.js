@@ -26,7 +26,7 @@ function render() {
       <h1>${painting.title}</h1>
       <p class="meta">${painting.meta}</p>
       <p class="price">${painting.price}</p>
-      <p class="description">${painting.description}</p>
+      <div class="description">${painting.descriptionHtml || `<p>${painting.description}</p>`}</div>
       <div class="order-links">
         <a class="primary" href="https://max.ru/u/f9LHodD0cOLGrv2IVl0ph_U3VSbgk9J3b61NacFTRPmokoeO5pcAcMMpPfM" target="_blank" rel="noopener">Заказать в Max</a>
         <a href="https://t.me/Nataly_Xa" target="_blank" rel="noopener">Telegram</a>
