@@ -2,6 +2,7 @@ const gallery = document.getElementById('gallery');
 const catButtons = document.querySelectorAll('.cat-btn');
 
 let activeCat = 'all';
+let paintings = [];
 const cardImageIndex = new Map(); // id -> текущий индекс фото в карточке
 
 function renderGallery() {
@@ -58,7 +59,18 @@ catButtons.forEach(btn => {
   });
 });
 
-renderGallery();
+async function initGallery() {
+  gallery.innerHTML = '<p class="loading">Загрузка каталога…</p>';
+  try {
+    paintings = await loadPaintings();
+  } catch (err) {
+    console.error('Не удалось загрузить каталог из Firebase, показываю резервные данные:', err);
+    paintings = seedPaintings;
+  }
+  renderGallery();
+}
+
+initGallery();
 
 /* ---------- quick-view modal ---------- */
 const modal = document.getElementById('modal');

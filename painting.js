@@ -1,9 +1,7 @@
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
-const painting = paintings.find(p => p.id === id) || paintings[0];
 
-document.getElementById('pageTitle').textContent = `${painting.title} — Lumino's Artefact`;
-
+let painting = null;
 let current = 0;
 
 function render() {
@@ -30,9 +28,9 @@ function render() {
       <p class="price">${painting.price}</p>
       <p class="description">${painting.description}</p>
       <div class="order-links">
-        <a class="primary" href="https://wa.me/00000000000" target="_blank" rel="noopener">Заказать в WhatsApp</a>
-        <a href="https://t.me/your_telegram" target="_blank" rel="noopener">Telegram</a>
-        <a href="mailto:youremail@example.com">Email</a>
+        <a class="primary" href="https://max.ru/u/f9LHodD0cOLGrv2IVl0ph_U3VSbgk9J3b61NacFTRPmokoeO5pcAcMMpPfM" target="_blank" rel="noopener">Заказать в Max</a>
+        <a href="https://t.me/Nataly_Xa" target="_blank" rel="noopener">Telegram</a>
+        <a href="mailto:luminosartefact@gmail.com">Email</a>
       </div>
     </div>
   `;
@@ -45,4 +43,17 @@ function render() {
   });
 }
 
-render();
+async function init() {
+  let list;
+  try {
+    list = await loadPaintings();
+  } catch (err) {
+    console.error('Не удалось загрузить каталог из Firebase, показываю резервные данные:', err);
+    list = seedPaintings;
+  }
+  painting = list.find(p => p.id === id) || list[0];
+  document.getElementById('pageTitle').textContent = `${painting.title} — Lumino's Artefact`;
+  render();
+}
+
+init();

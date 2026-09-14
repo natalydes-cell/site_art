@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Админ-панель — Lumino's Artefact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a class="wordmark" href="index.html">Lumino's <span>Artefact</span></a>
+    <a class="back-link" href="index.html">← На сайт</a>
+  </header>
+
+  <main class="admin-main">
+
+    <section id="loginSection" class="admin-panel">
+      <h1>Вход в админ-панель</h1>
+      <p class="admin-hint">Доступ есть только у пользователя, добавленного в Firebase Authentication.</p>
+      <form id="loginForm" class="admin-form">
+        <label>
+          Email
+          <input type="email" name="email" required autocomplete="username">
+        </label>
+        <label>
+          Пароль
+          <input type="password" name="password" required autocomplete="current-password">
+        </label>
+        <p id="loginError" class="admin-error"></p>
+        <button type="submit" class="admin-btn primary">Войти</button>
+      </form>
+    </section>
+
+    <section id="adminSection" class="admin-panel" hidden>
+      <div class="admin-topbar">
+        <h1>Каталог картин</h1>
+        <button id="logoutBtn" class="admin-btn ghost">Выйти</button>
+      </div>
+
+      <div class="admin-seed">
+        <p>Каталог пуст? Перенесите 6 стартовых картин из кода сайта в базу одним нажатием.</p>
+        <button id="seedBtn" class="admin-btn ghost">Импортировать стартовый каталог</button>
+      </div>
+
+      <h2>Добавить картину</h2>
+      <form id="addForm" class="admin-form">
+        <label>
+          Название
+          <input type="text" name="title" required placeholder="Например, Полуденный сад">
+        </label>
+        <label>
+          Категория
+          <select name="category" required>
+            <option value="acrylic">Акрил</option>
+            <option value="graphic">Графика</option>
+          </select>
+        </label>
+        <label>
+          Материал и размер
+          <input type="text" name="meta" required placeholder="Холст, акрил, 50×70 см">
+        </label>
+        <label>
+          Цена
+          <input type="text" name="price" required placeholder="15 000 ₽">
+        </label>
+        <label>
+          Описание
+          <textarea name="description" rows="4" required placeholder="Короткий рассказ о работе"></textarea>
+        </label>
+        <label>
+          Ссылки на фото (по одной в строке, первая — обложка)
+          <textarea name="images" rows="3" required placeholder="https://.../foto1.jpg&#10;https://.../foto2.jpg"></textarea>
+        </label>
+        <p class="admin-hint">Фото нужно сначала загрузить в любой хостинг картинок (например, Imgur или Яндекс.Диск с публичной ссылкой) и вставить сюда прямые ссылки на изображения.</p>
+        <p id="addStatus" class="admin-status"></p>
+        <button type="submit" class="admin-btn primary">Добавить в каталог</button>
+      </form>
+
+      <h2>Текущие работы</h2>
+      <div id="itemsList" class="admin-items"></div>
+    </section>
+
+  </main>
+
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="catalog.js"></script>
+  <script src="paintings.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

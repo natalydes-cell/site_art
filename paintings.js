@@ -1,6 +1,7 @@
-// Данные картин. category: "acrylic" (Акрил) | "graphic" (Графика)
-// images — массив фото для карусели (первое используется как обложка)
-const paintings = [
+// Стартовые данные каталога — используются один раз для заполнения Firestore
+// (кнопка "Импортировать" в admin.html) и как резервный набор, если Firebase недоступен.
+// category: "acrylic" (Акрил) | "graphic" (Графика); images — массив фото для карусели
+const seedPaintings = [
   {
     id: "poludenniy-sad",
     title: "Полуденный сад",

@@ -207,6 +207,14 @@ a { color: inherit; }
   border-bottom-color: var(--accent);
 }
 
+.loading {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  font-size: .9rem;
+  padding: 40px 0;
+  text-align: center;
+}
+
 /* ---------- footer ---------- */
 .site-footer {
   text-align: center;
