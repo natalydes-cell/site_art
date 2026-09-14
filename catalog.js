@@ -7,8 +7,21 @@ function catalogDb() {
   return firebase.firestore();
 }
 
+// Пока в firebase-config.js не вставлен реальный конфиг проекта, Firestore
+// не отвечает ошибкой, а зависает в бесконечном ретрае — поэтому здесь
+// стоит таймаут, чтобы сайт не завис в "Загрузка каталога..." навсегда.
+function withTimeout(promise, ms) {
+  return Promise.race([
+    promise,
+    new Promise((_, reject) => setTimeout(() => reject(new Error('Firestore timeout')), ms))
+  ]);
+}
+
 async function loadPaintings() {
-  const snap = await catalogDb().collection('paintings').orderBy('createdAt', 'asc').get();
+  const snap = await withTimeout(
+    catalogDb().collection('paintings').orderBy('createdAt', 'asc').get(),
+    6000
+  );
   return snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
 }
 
