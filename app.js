@@ -63,6 +63,7 @@ async function initGallery() {
   gallery.innerHTML = '<p class="loading">Загрузка каталога…</p>';
   try {
     paintings = await loadPaintings();
+    if (!paintings.length) paintings = seedPaintings;
   } catch (err) {
     console.error('Не удалось загрузить каталог из Firebase, показываю резервные данные:', err);
     paintings = seedPaintings;

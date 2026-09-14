@@ -47,6 +47,7 @@ async function init() {
   let list;
   try {
     list = await loadPaintings();
+    if (!list.length) list = seedPaintings;
   } catch (err) {
     console.error('Не удалось загрузить каталог из Firebase, показываю резервные данные:', err);
     list = seedPaintings;
