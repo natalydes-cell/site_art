@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lumino's Artefact — галерея картин</title>
+<title>Lumino's Artefact — авторская живопись и графика</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -12,52 +12,67 @@
 
   <header class="site-header">
     <a class="wordmark" href="index.html">Lumino's <span>Artefact</span></a>
-    <nav class="cats" id="cats">
-      <button class="cat-btn on" data-cat="all">Все работы</button>
-      <button class="cat-btn" data-cat="acrylic">Акрил</button>
-      <button class="cat-btn" data-cat="graphic">Графика</button>
-    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
+      <span></span><span></span><span></span>
+    </button>
   </header>
 
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <nav class="drawer" id="drawer">
+    <button class="drawer-close" id="drawerClose" aria-label="Закрыть меню">&times;</button>
+    <ul class="drawer-links">
+      <li><a href="index.html" aria-current="page">Главная</a></li>
+      <li><a href="about.html">Обо мне</a></li>
+      <li><a href="gallery.html">Галерея</a></li>
+      <li><a href="delivery.html">Доставка и оплата</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+    </ul>
+    <div class="drawer-socials">
+      <a class="social-icon" href="https://max.ru/u/f9LHodD0cOLGrv2IVl0ph_U3VSbgk9J3b61NacFTRPmokoeO5pcAcMMpPfM" target="_blank" rel="noopener" aria-label="Max">
+        <svg viewBox="0 0 24 24"><path d="M12 3.5C6.98 3.5 3 7.06 3 11.3c0 2.36 1.24 4.47 3.2 5.9-.1.98-.4 2.3-.99 3.5a.4.4 0 0 0 .53.53c1.46-.62 2.87-1.5 3.7-2.1.83.2 1.7.3 2.56.3 5.02 0 9-3.56 9-7.8s-3.98-7.8-9-7.8Z"/></svg>
+      </a>
+      <a class="social-icon" href="https://t.me/Nataly_Xa" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg viewBox="0 0 24 24"><path d="M20.7 4.2 2.9 11.1c-.8.3-.8 1.5.1 1.8l4.4 1.4 1.7 5.3c.2.7 1.1.9 1.6.4l2.4-2.3 4.5 3.3c.6.5 1.6.1 1.7-.6l2.8-14.5c.2-.9-.7-1.6-1.4-1.3ZM8.6 13.6l8.6-6.3c.2-.1.4.1.3.3l-6.9 6.7c-.3.3-.4.6-.5 1l-.2 2.1-1.3-3.8Z"/></svg>
+      </a>
+      <a class="social-icon" href="mailto:luminosartefact@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 2.4V17h16V7.4l-7.4 5.3a1 1 0 0 1-1.2 0L4 7.4Zm.6-.4 7.4 5.3 7.4-5.3H4.6Z"/></svg>
+      </a>
+    </div>
+  </nav>
+
   <main>
-    <section class="gallery" id="gallery"></section>
+    <section class="hero">
+      <p class="eyebrow">Авторская живопись и графика</p>
+      <h1>Картины, написанные там,<br>где свет встречается с тишиной</h1>
+      <p>Холст и бумага, акрил и уголь — работы, которые начинаются с наблюдения за обычным светом дня и заканчиваются вещью, которую можно повесить на стену. Каждая картина существует в единственном экземпляре.</p>
+      <div class="hero-actions">
+        <a class="primary" href="gallery.html">Смотреть галерею</a>
+        <a href="about.html">Обо мне</a>
+      </div>
+    </section>
+
+    <div class="hero-strip">
+      <a href="painting.html?id=poludenniy-sad"><img src="images/p1-1.svg" alt="Полуденный сад"></a>
+      <a href="painting.html?id=tihaya-voda"><img src="images/p2-1.svg" alt="Тихая вода"></a>
+      <a href="painting.html?id=kontur-goroda"><img src="images/p4-1.svg" alt="Контур города"></a>
+    </div>
   </main>
 
   <footer class="site-footer">
-    <p>Заказ и вопросы:
-      <a href="https://max.ru/u/f9LHodD0cOLGrv2IVl0ph_U3VSbgk9J3b61NacFTRPmokoeO5pcAcMMpPfM" target="_blank" rel="noopener">Max</a> ·
-      <a href="https://t.me/Nataly_Xa" target="_blank" rel="noopener">Telegram</a> ·
-      <a href="mailto:luminosartefact@gmail.com">Email</a>
-    </p>
+    <div class="footer-socials">
+      <a class="social-icon" href="https://max.ru/u/f9LHodD0cOLGrv2IVl0ph_U3VSbgk9J3b61NacFTRPmokoeO5pcAcMMpPfM" target="_blank" rel="noopener" aria-label="Max">
+        <svg viewBox="0 0 24 24"><path d="M12 3.5C6.98 3.5 3 7.06 3 11.3c0 2.36 1.24 4.47 3.2 5.9-.1.98-.4 2.3-.99 3.5a.4.4 0 0 0 .53.53c1.46-.62 2.87-1.5 3.7-2.1.83.2 1.7.3 2.56.3 5.02 0 9-3.56 9-7.8s-3.98-7.8-9-7.8Z"/></svg>
+      </a>
+      <a class="social-icon" href="https://t.me/Nataly_Xa" target="_blank" rel="noopener" aria-label="Telegram">
+        <svg viewBox="0 0 24 24"><path d="M20.7 4.2 2.9 11.1c-.8.3-.8 1.5.1 1.8l4.4 1.4 1.7 5.3c.2.7 1.1.9 1.6.4l2.4-2.3 4.5 3.3c.6.5 1.6.1 1.7-.6l2.8-14.5c.2-.9-.7-1.6-1.4-1.3ZM8.6 13.6l8.6-6.3c.2-.1.4.1.3.3l-6.9 6.7c-.3.3-.4.6-.5 1l-.2 2.1-1.3-3.8Z"/></svg>
+      </a>
+      <a class="social-icon" href="mailto:luminosartefact@gmail.com" aria-label="Email">
+        <svg viewBox="0 0 24 24"><path d="M4 5h16a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Zm0 2.4V17h16V7.4l-7.4 5.3a1 1 0 0 1-1.2 0L4 7.4Zm.6-.4 7.4 5.3 7.4-5.3H4.6Z"/></svg>
+      </a>
+    </div>
     <p class="copyright">&copy; 2026 Lumino's Artefact</p>
   </footer>
 
-  <!-- Быстрый просмотр -->
-  <div id="modal" class="modal hidden">
-    <div class="modal-panel">
-      <button class="modal-close" id="modalClose" aria-label="Закрыть">&times;</button>
-      <div class="modal-media">
-        <img id="modalImg" src="" alt="">
-        <button class="carousel-arrow left" id="modalPrev" aria-label="Предыдущее фото">&#8249;</button>
-        <button class="carousel-arrow right" id="modalNext" aria-label="Следующее фото">&#8250;</button>
-        <div class="dots" id="modalDots"></div>
-      </div>
-      <div class="modal-info">
-        <p class="modal-cat" id="modalCat"></p>
-        <h2 id="modalTitle"></h2>
-        <p class="modal-meta" id="modalMeta"></p>
-        <p class="modal-price" id="modalPrice"></p>
-        <p class="modal-desc" id="modalDesc"></p>
-        <a class="modal-link" id="modalLink" href="#">Смотреть страницу картины →</a>
-      </div>
-    </div>
-  </div>
-
-  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
-  <script src="firebase-config.js"></script>
-  <script src="catalog.js"></script>
-  <script src="paintings.js"></script>
-  <script src="app.js"></script>
+  <script src="nav.js"></script>
 </body>
 </html>

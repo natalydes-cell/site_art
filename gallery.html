@@ -3,21 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="pageTitle">Картина — Lumino's Artefact</title>
+<title>Галерея — Lumino's Artefact</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="painting.css">
 </head>
 <body>
 
   <header class="site-header">
     <a class="wordmark" href="index.html">Lumino's <span>Artefact</span></a>
-    <a class="back-link" href="gallery.html">← Галерея</a>
     <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
       <span></span><span></span><span></span>
     </button>
   </header>
+
+  <nav class="cats" id="cats">
+    <button class="cat-btn on" data-cat="all">Все работы</button>
+    <button class="cat-btn" data-cat="acrylic">Акрил</button>
+    <button class="cat-btn" data-cat="graphic">Графика</button>
+  </nav>
 
   <div class="drawer-overlay" id="drawerOverlay"></div>
   <nav class="drawer" id="drawer">
@@ -25,7 +29,7 @@
     <ul class="drawer-links">
       <li><a href="index.html">Главная</a></li>
       <li><a href="about.html">Обо мне</a></li>
-      <li><a href="gallery.html">Галерея</a></li>
+      <li><a href="gallery.html" aria-current="page">Галерея</a></li>
       <li><a href="delivery.html">Доставка и оплата</a></li>
       <li><a href="contacts.html">Контакты</a></li>
     </ul>
@@ -42,8 +46,8 @@
     </div>
   </nav>
 
-  <main class="painting-main" id="paintingMain">
-    <!-- заполняется скриптом -->
+  <main>
+    <section class="gallery" id="gallery"></section>
   </main>
 
   <footer class="site-footer">
@@ -61,12 +65,33 @@
     <p class="copyright">&copy; 2026 Lumino's Artefact</p>
   </footer>
 
+  <!-- Быстрый просмотр -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-panel">
+      <button class="modal-close" id="modalClose" aria-label="Закрыть">&times;</button>
+      <div class="modal-media">
+        <img id="modalImg" src="" alt="">
+        <button class="carousel-arrow left" id="modalPrev" aria-label="Предыдущее фото">&#8249;</button>
+        <button class="carousel-arrow right" id="modalNext" aria-label="Следующее фото">&#8250;</button>
+        <div class="dots" id="modalDots"></div>
+      </div>
+      <div class="modal-info">
+        <p class="modal-cat" id="modalCat"></p>
+        <h2 id="modalTitle"></h2>
+        <p class="modal-meta" id="modalMeta"></p>
+        <p class="modal-price" id="modalPrice"></p>
+        <p class="modal-desc" id="modalDesc"></p>
+        <a class="modal-link" id="modalLink" href="#">Смотреть страницу картины →</a>
+      </div>
+    </div>
+  </div>
+
   <script src="nav.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
   <script src="firebase-config.js"></script>
   <script src="catalog.js"></script>
   <script src="paintings.js"></script>
-  <script src="painting.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

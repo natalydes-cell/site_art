@@ -3,17 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title id="pageTitle">Картина — Lumino's Artefact</title>
+<title>Доставка и оплата — Lumino's Artefact</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="painting.css">
 </head>
 <body>
 
   <header class="site-header">
     <a class="wordmark" href="index.html">Lumino's <span>Artefact</span></a>
-    <a class="back-link" href="gallery.html">← Галерея</a>
     <button class="menu-toggle" id="menuToggle" aria-label="Открыть меню">
       <span></span><span></span><span></span>
     </button>
@@ -26,7 +24,7 @@
       <li><a href="index.html">Главная</a></li>
       <li><a href="about.html">Обо мне</a></li>
       <li><a href="gallery.html">Галерея</a></li>
-      <li><a href="delivery.html">Доставка и оплата</a></li>
+      <li><a href="delivery.html" aria-current="page">Доставка и оплата</a></li>
       <li><a href="contacts.html">Контакты</a></li>
     </ul>
     <div class="drawer-socials">
@@ -42,8 +40,32 @@
     </div>
   </nav>
 
-  <main class="painting-main" id="paintingMain">
-    <!-- заполняется скриптом -->
+  <main>
+    <article class="page-content">
+      <p class="cat">Доставка и оплата</p>
+      <h1>Как оформить заказ</h1>
+      <p>Выберите картину в галерее и напишите мне в Max, Telegram или на почту — укажите название работы. Я отвечу и подтвержу, что картина ещё доступна (каждая работа в единственном экземпляре).</p>
+
+      <h2>Оплата</h2>
+      <ul>
+        <li>Перевод на карту</li>
+        <li>Оплата при получении — для встречи лично или доставки по городу</li>
+      </ul>
+
+      <h2>Доставка</h2>
+      <ul>
+        <li>Лично, при встрече — бесплатно</li>
+        <li>Курьером по городу — по договорённости</li>
+        <li>Почтой России или транспортной компанией по всей России — оплачивает получатель, картина упаковывается в жёсткий тубус или деревянный короб в зависимости от размера</li>
+      </ul>
+
+      <h2>Упаковка</h2>
+      <p>Все работы упаковываются бережно: холсты — в защитную плёнку и картонные уголки, графика — в жёсткий планшет, чтобы работа доехала без повреждений.</p>
+
+      <div class="hero-actions" style="justify-content: flex-start; margin-top: 32px;">
+        <a class="primary" href="contacts.html">Задать вопрос</a>
+      </div>
+    </article>
   </main>
 
   <footer class="site-footer">
@@ -62,11 +84,5 @@
   </footer>
 
   <script src="nav.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
-  <script src="firebase-config.js"></script>
-  <script src="catalog.js"></script>
-  <script src="paintings.js"></script>
-  <script src="painting.js"></script>
 </body>
 </html>
