@@ -438,6 +438,15 @@ a { color: inherit; }
   display: block;
 }
 
+.home-intro .eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
 .home-intro h1 {
   font-family: 'Fraunces', Georgia, serif;
   font-style: italic;
