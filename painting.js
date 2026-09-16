@@ -4,8 +4,13 @@ const id = params.get('id');
 let painting = null;
 let current = 0;
 
+function orderMessage() {
+  return `Привет! Хочу заказать твою картину «${painting.title}», ${painting.meta}, ${painting.price}`;
+}
+
 function render() {
   const main = document.getElementById('paintingMain');
+  const msg = encodeURIComponent(orderMessage());
   main.innerHTML = `
     <div class="painting-media">
       <div class="main-frame">
@@ -28,9 +33,9 @@ function render() {
       <p class="price">${painting.price}</p>
       <div class="description">${painting.descriptionHtml || `<p>${painting.description}</p>`}</div>
       <div class="order-links">
-        <a class="primary" href="https://max.ru/u/f9LHodD0cOLGrv2IVl0ph_U3VSbgk9J3b61NacFTRPmokoeO5pcAcMMpPfM" target="_blank" rel="noopener">Заказать в Max</a>
-        <a href="https://t.me/Nataly_Xa" target="_blank" rel="noopener">Telegram</a>
-        <a href="mailto:luminosartefact@gmail.com">Email</a>
+        <a class="primary" href="https://max.ru/u/f9LHodD0cOLGrv2IVl0ph_U3VSbgk9J3b61NacFTRPmokoeO5pcAcMMpPfM?text=${msg}" target="_blank" rel="noopener">Заказать в Max</a>
+        <a href="https://t.me/Nataly_Xa?text=${msg}" target="_blank" rel="noopener">Telegram</a>
+        <a href="mailto:luminosartefact@gmail.com?subject=${encodeURIComponent('Заказ: ' + painting.title)}&body=${msg}">Email</a>
       </div>
     </div>
   `;
