@@ -95,6 +95,7 @@ function openModal(id) {
   currentImg = 0;
   fillModal();
   modal.classList.remove('hidden');
+  document.body.classList.add('modal-open');
 }
 
 function fillModal() {
@@ -125,6 +126,7 @@ function fillModal() {
 
 function closeModal() {
   modal.classList.add('hidden');
+  document.body.classList.remove('modal-open');
   modalImg.src = '';
   currentPainting = null;
 }
