@@ -395,7 +395,7 @@ a { color: inherit; }
 .hero-strip a:hover img { transform: scale(1.05); }
 
 @media (max-width: 560px) {
-  .hero-strip { grid-template-columns: repeat(3, 1fr); gap: 8px; padding-left: 14px; padding-right: 14px; }
+  .hero-strip { grid-template-columns: repeat(3, 1fr); gap: 8px; }
 }
 
 /* ---------- simple content pages (about / delivery / contacts) ---------- */
@@ -417,17 +417,16 @@ a { color: inherit; }
 /* ---------- homepage intro (about-me merged with hero) ---------- */
 .home-intro {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: clamp(24px, 4vw, 48px);
+  align-items: flex-start;
+  gap: clamp(28px, 4vw, 48px);
   max-width: 900px;
   margin: 0 auto;
-  padding: clamp(48px, 8vw, 88px) 24px clamp(40px, 6vw, 64px);
+  padding: clamp(40px, 6vw, 72px) 24px clamp(44px, 6vw, 68px);
 }
 
 .home-intro-portrait {
-  width: 240px;
-  height: 240px;
+  width: clamp(200px, 26vw, 240px);
+  height: clamp(200px, 26vw, 240px);
   flex-shrink: 0;
   border-radius: 6px;
   overflow: hidden;
@@ -443,10 +442,10 @@ a { color: inherit; }
 
 .home-intro-text {
   flex: 1;
-  min-width: 260px;
+  min-width: 0;
 }
 
-.home-intro-text .eyebrow {
+.home-intro .eyebrow {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 11px;
   letter-spacing: .14em;
@@ -455,35 +454,41 @@ a { color: inherit; }
   margin: 0 0 12px;
 }
 
-.home-intro-text h1 {
+.home-intro h1 {
   font-family: 'Fraunces', Georgia, serif;
   font-style: italic;
   font-weight: 500;
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  margin: 0 0 8px;
+  font-size: clamp(2rem, 4.8vw, 2.7rem);
+  line-height: 1.15;
+  margin: 0 0 10px;
 }
 
-.home-intro-text .tagline {
+.home-intro .tagline {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 12px;
-  letter-spacing: .1em;
+  letter-spacing: .14em;
   text-transform: uppercase;
   color: var(--muted);
-  margin: 0 0 18px;
+  margin: 0 0 22px;
 }
 
 .home-intro-text p:not(.eyebrow):not(.tagline) {
-  color: var(--muted);
-  font-size: 1.02rem;
-  line-height: 1.7;
-  max-width: 48ch;
-  margin: 0 0 24px;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.75;
+  margin: 0 0 16px;
 }
 
-@media (max-width: 640px) {
-  .home-intro { flex-direction: column; text-align: center; }
-  .home-intro-text p:not(.eyebrow):not(.tagline) { margin-left: auto; margin-right: auto; }
-  .home-intro-text .hero-actions { justify-content: center !important; }
+.home-intro-actions {
+  justify-content: flex-start;
+  margin-top: 28px;
+}
+
+@media (max-width: 720px) {
+  .home-intro { flex-direction: column; align-items: center; text-align: center; }
+  .home-intro-text { width: 100%; }
+  .home-intro-actions { justify-content: center; }
+  .home-intro-text p:not(.eyebrow):not(.tagline) { text-align: left; font-size: .96rem; }
 }
 
 .page-content h1 {
@@ -610,12 +615,14 @@ a { color: inherit; }
 
 .modal.hidden { display: none; }
 
+body.modal-open { overflow: hidden; }
+
 .modal-panel {
   background: var(--bg);
   max-width: 1080px;
   width: 100%;
   max-height: 90vh;
-  overflow-y: auto;
+  overflow: hidden;
   border-radius: 6px;
   display: grid;
   grid-template-columns: 1fr 1.2fr;
@@ -623,15 +630,24 @@ a { color: inherit; }
 }
 
 @media (max-width: 720px) {
-  .modal-panel { grid-template-columns: 1fr; }
+  .modal-panel {
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
 }
 
 .modal-close {
   position: absolute;
   top: 12px;
   right: 14px;
-  background: none;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
   border: none;
+  border-radius: 50%;
   font-size: 1.8rem;
   line-height: 1;
   color: var(--ink);
@@ -641,14 +657,18 @@ a { color: inherit; }
 
 .modal-media {
   position: relative;
-  aspect-ratio: 1 / 1;
   background: var(--card);
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .modal-media img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -693,6 +713,21 @@ a { color: inherit; }
 
 .modal-info {
   padding: 32px 28px;
+  max-height: 90vh;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+@media (max-width: 720px) {
+  .modal-media {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+  }
+
+  .modal-info {
+    max-height: none;
+    overflow: visible;
+  }
 }
 
 .modal-cat {
